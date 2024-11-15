@@ -5,10 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node dist/index.js",
-    "build": "tsc -b",
-    "vercel-build": "npm run build"
+    "start": "nodemon src/index.ts",
+    "build": "rimraf dist && tsc",
+    "ts.check": "tsc --project tsconfig.json",
+    "add-build": "git add dist"
   },
+  "pre-commit": [
+    "ts.check",
+    "build",
+    "add-build"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -28,7 +34,10 @@
     "jsonwebtoken": "^9.0.2",
     "multer": "^1.4.5-lts.1",
     "nodemailer": "^6.9.14",
-    "prisma": "^5.14.0"
+    "pre-commit": "^1.2.2",
+    "prisma": "^5.14.0",
+    "rimraf": "^6.0.1",
+    "ts-node": "^10.9.2"
   },
   "devDependencies": {
     "@types/multer": "^1.4.11"
