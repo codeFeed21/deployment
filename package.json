@@ -4,8 +4,9 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rimraf dist && tsc && npx prisma generate",
+    "build": "rimraf dist && tsc",
     "ts.check": "tsc --project tsconfig.json",
+    "postinstall": " npx prisma generate",
     "start": "node dist/index.js",
     "dev": "nodemon src/index.ts"
   },
