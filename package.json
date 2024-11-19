@@ -7,13 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon src/index.ts",
     "build": "rimraf dist && tsc && npx prisma generate",
-    "ts.check": "tsc --project tsconfig.json",
-    "add-build": "git add dist"
+    "ts.check": "tsc --project tsconfig.json"
   },
   "pre-commit": [
     "ts.check",
-    "build",
-    "add-build"
+    "build"
   ],
   "keywords": [],
   "author": "",
